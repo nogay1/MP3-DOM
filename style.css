@@ -6,14 +6,16 @@ body {
    line-height: 1.5rem;
 }
 
-#songs {
+#songs,
+#playlists {
    display: flex;
    flex-direction: column;
    max-width: 40rem;
    width: 50%;
 }
 
-.song {
+.song,
+.playlist {
    display: flex;
    flex-direction: row;
    justify-content: start;
