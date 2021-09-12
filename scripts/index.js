@@ -1,3 +1,8 @@
+const formatDuration = (duration) =>
+   ("00" + Math.floor(parseInt(duration) / 60)).slice(-2) +
+   ":" +
+   ("00" + (parseInt(duration) % 60)).slice(-2);
+const getSongById = (songId) => player.songs.find(({ id }) => id === songId);
 /**
  * Plays a song from the player.
  * Playing a song means changing the visual indication of the currently playing song.
@@ -17,8 +22,8 @@ function createSongElement({ id, title, album, artist, duration, coverArt }) {
          alt: "Cover art of the song",
          src: coverArt,
       }),
-      createElement("p", "desc"),
-      createElement("span", duration, "duration"),
+      createElement("p", [], "desc"),
+      createElement("span", formatDuration(duration), "duration"),
    ];
    children[1].innerHTML = `
     <strong>${title}</strong> ${artist}<br>
@@ -31,11 +36,22 @@ function createSongElement({ id, title, album, artist, duration, coverArt }) {
 /**
  * Creates a playlist DOM element based on a playlist object.
  */
-function createPlaylistElement({ id, name, songs }) {
-   const children = [];
-   const classes = [];
-   const attrs = {};
-   return createElement("div", children, classes, attrs);
+function createPlaylistElement({ name, songs }) {
+   console.log(songs);
+   const duration = songs.reduce(
+      (sum, songId) => getSongById(songId).duration + sum,
+      0
+   );
+   console.log(duration);
+   const children = [
+      createElement("p", [], "desc"),
+      createElement("span", formatDuration(duration), "duration"),
+   ];
+   children[0].innerHTML = `
+    <strong>${name}</strong> <br>
+      ${songs.length} songs
+      `;
+   return createElement("div", children, "playlist");
 }
 
 /**
@@ -62,6 +78,14 @@ function createElement(tagName, children = [], classes = [], attributes = {}) {
    return elem;
 }
 
+player.songs.sort((songA, songB) => songA.title.localeCompare(songB.title));
+
 player.songs.forEach((song) => {
    document.querySelector("#songs").append(createSongElement(song));
+});
+
+player.playlists.sort((pl1, pl2) => pl1.name.localeCompare(pl2.name));
+
+player.playlists.forEach((playlist) => {
+   document.querySelector("#playlists").append(createPlaylistElement(playlist));
 });
