@@ -5,27 +5,36 @@
  * @param {String} songId - the ID of the song to play
  */
 function playSong(songId) {
-    // Your code here
+   // Your code here
 }
 
 /**
  * Creates a song DOM element based on a song object.
  */
 function createSongElement({ id, title, album, artist, duration, coverArt }) {
-    const children = []
-    const classes = []
-    const attrs = { onclick: `playSong(${id})` }
-    return createElement("div", children, classes, attrs)
+   const children = [
+      createElement("img", [], "coverArt", {
+         alt: "Cover art of the song",
+         src: coverArt,
+      }),
+      createElement("strong", title),
+      createElement("span", album, "album"),
+      createElement("span", artist, "artist"),
+      createElement("span", duration, "duration"),
+   ];
+   const classes = [];
+   const attrs = { onclick: `playSong(${id})` };
+   return createElement("div", children, classes, attrs);
 }
 
 /**
  * Creates a playlist DOM element based on a playlist object.
  */
 function createPlaylistElement({ id, name, songs }) {
-    const children = []
-    const classes = []
-    const attrs = {}
-    return createElement("div", children, classes, attrs)
+   const children = [];
+   const classes = [];
+   const attrs = {};
+   return createElement("div", children, classes, attrs);
 }
 
 /**
@@ -41,7 +50,17 @@ function createPlaylistElement({ id, name, songs }) {
  * @param {Object} attributes - the attributes for the new element
  */
 function createElement(tagName, children = [], classes = [], attributes = {}) {
-    // Your code here
+   const elem = document.createElement(tagName);
+   if (children && typeof children !== "object") children = [children];
+   elem.append(...children);
+   if (classes && typeof classes !== "object") classes = [classes];
+   elem.classList.add(...classes);
+   for (let attr in attributes) {
+      elem.setAttribute(attr, attributes[attr]);
+   }
+   return elem;
 }
 
-// You can write more code below this line
+player.songs.forEach((song) => {
+   document.querySelector("#songs").append(createSongElement(song));
+});
