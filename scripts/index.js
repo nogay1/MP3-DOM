@@ -4,6 +4,19 @@ const formatDuration = (duration) =>
    ("00" + (parseInt(duration) % 60)).slice(-2);
 const getSongById = (songId) => player.songs.find(({ id }) => id === songId);
 
+const MAX_LENGTH = 15 * 60; // 15 min
+const MIN_LENGTH = 3 * 60; // 3 min
+const colorScale = (duration) => {
+   duration =
+      duration < MIN_LENGTH
+         ? MIN_LENGTH
+         : duration > MAX_LENGTH
+         ? MAX_LENGTH
+         : duration;
+   const scale = Math.floor((duration / (MAX_LENGTH - MIN_LENGTH)) * 255); // from 0 to 255;
+   return `rgb(${scale},${255 - scale},0)`;
+};
+
 let currentPlaylist, currentSong, currentTimeout;
 
 const playNext = () => {
@@ -32,7 +45,9 @@ function createSongElement({ id, title, album, artist, duration, coverArt }) {
          src: coverArt,
       }),
       createElement("p", [], "desc"),
-      createElement("span", formatDuration(duration), "duration"),
+      createElement("span", formatDuration(duration), "duration", {
+         style: `color: ${colorScale(duration)}`,
+      }),
    ];
    children[1].innerHTML = `
     <strong>${title}</strong> ${artist}<br>
