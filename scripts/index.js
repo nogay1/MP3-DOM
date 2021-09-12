@@ -3,19 +3,16 @@ const formatDuration = (duration) =>
    ":" +
    ("00" + (parseInt(duration) % 60)).slice(-2);
 const getSongById = (songId) => player.songs.find(({ id }) => id === songId);
-/**
- * Plays a song from the player.
- * Playing a song means changing the visual indication of the currently playing song.
- *
- * @param {String} songId - the ID of the song to play
- */
+
 function playSong(songId) {
-   // Your code here
+   const { title, coverArt, artist } = getSongById(songId);
+   const currentElem = document.getElementById("current");
+   currentElem.querySelector("img").setAttribute("src", coverArt);
+   currentElem.querySelector(
+      "div"
+   ).innerHTML = `<strong>${title}</strong> ${artist}`;
 }
 
-/**
- * Creates a song DOM element based on a song object.
- */
 function createSongElement({ id, title, album, artist, duration, coverArt }) {
    const children = [
       createElement("img", [], "coverArt", {
@@ -33,9 +30,6 @@ function createSongElement({ id, title, album, artist, duration, coverArt }) {
    return createElement("div", children, "song", attrs);
 }
 
-/**
- * Creates a playlist DOM element based on a playlist object.
- */
 function createPlaylistElement({ name, songs }) {
    console.log(songs);
    const duration = songs.reduce(
@@ -54,18 +48,6 @@ function createPlaylistElement({ name, songs }) {
    return createElement("div", children, "playlist");
 }
 
-/**
- * Creates a new DOM element.
- *
- * Example usage:
- * createElement("div", ["just text", createElement(...)], ["nana", "banana"], {id: "bla"})
- *
- * @param {String} tagName - the type of the element
- * @param {Array} children - the child elements for the new element.
- *                           Each child can be a DOM element, or a string (if you just want a text element).
- * @param {Array} classes - the class list of the new element
- * @param {Object} attributes - the attributes for the new element
- */
 function createElement(tagName, children = [], classes = [], attributes = {}) {
    const elem = document.createElement(tagName);
    if (children && typeof children !== "object") children = [children];
@@ -89,3 +71,5 @@ player.playlists.sort((pl1, pl2) => pl1.name.localeCompare(pl2.name));
 player.playlists.forEach((playlist) => {
    document.querySelector("#playlists").append(createPlaylistElement(playlist));
 });
+
+playSong(player.songs[0].id);
