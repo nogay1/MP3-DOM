@@ -4,7 +4,17 @@ const formatDuration = (duration) =>
    ("00" + (parseInt(duration) % 60)).slice(-2);
 const getSongById = (songId) => player.songs.find(({ id }) => id === songId);
 
+let currentPlaylist = player.songs.map((song) => song.id);
+let currentSong;
+
+const playNext = () => {
+   const currentIndex = currentPlaylist.indexOf(currentSong);
+   if (currentIndex + 1 > currentPlaylist.length) playSong(currentPlaylist[0]);
+   else playSong(currentPlaylist[currentIndex + 1]);
+};
+
 function playSong(songId) {
+   currentSong = songId;
    const { title, coverArt, artist } = getSongById(songId);
    const currentElem = document.getElementById("current");
    currentElem.querySelector("img").setAttribute("src", coverArt);
@@ -31,7 +41,6 @@ function createSongElement({ id, title, album, artist, duration, coverArt }) {
 }
 
 function createPlaylistElement({ name, songs }) {
-   console.log(songs);
    const duration = songs.reduce(
       (sum, songId) => getSongById(songId).duration + sum,
       0
