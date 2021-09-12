@@ -1,1 +1,25 @@
-/* Your code here */
+body {
+   display: flex;
+   justify-content: center;
+}
+
+#songs {
+   display: flex;
+   flex-direction: column;
+}
+
+.song {
+   display: flex;
+   flex-direction: row;
+   justify-content: start;
+   align-items: center;
+}
+
+.coverArt {
+   width: 80px;
+   height: auto;
+}
+
+.duration {
+   margin-left: auto;
+}

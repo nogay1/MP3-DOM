@@ -17,14 +17,15 @@ function createSongElement({ id, title, album, artist, duration, coverArt }) {
          alt: "Cover art of the song",
          src: coverArt,
       }),
-      createElement("strong", title),
-      createElement("span", album, "album"),
-      createElement("span", artist, "artist"),
+      createElement("p", "desc"),
       createElement("span", duration, "duration"),
    ];
-   const classes = [];
+   children[1].innerHTML = `
+    <strong>${title}</strong> ${artist}<br>
+      album: ${album}
+      `;
    const attrs = { onclick: `playSong(${id})` };
-   return createElement("div", children, classes, attrs);
+   return createElement("div", children, "song", attrs);
 }
 
 /**
