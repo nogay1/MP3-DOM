@@ -21,6 +21,20 @@ body {
    width: 40rem;
 }
 
+.add-song-dialog {
+   position: fixed;
+   opacity: 1;
+   height: 20rem;
+   width: 20rem;
+   background-color: white;
+   border: solid 1px red;
+   top: calc(50vh - 10rem);
+   left: calc(50vw - 10rem);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
 .songs-options {
    display: flex;
    justify-content: space-around;

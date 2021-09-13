@@ -1,5 +1,6 @@
 import songElement from "./songElement.js";
 import { createElement, getSongById } from "../helpers.js";
+import addSongElement from "./addSongElement.js";
 
 export default class songListElement {
    constructor(parentElement, songs) {
@@ -44,9 +45,17 @@ export default class songListElement {
       );
    }
 
+   addSong() {
+      const dialog = new addSongElement((songData) => {
+         console.log(songData);
+      });
+   }
+
    clickHandler(event) {
       if (event.target.tagName !== "BUTTON") return;
       const action = event.target.value;
+
+      if (action === "addSong") this.addSong();
 
       const songEl = event.target.closest("song");
       if (!songEl) return;
