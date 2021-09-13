@@ -26,7 +26,9 @@ export default class songListElement {
    }
 
    playSong(songId) {
-      alert(songId);
+      this.parentElement.dispatchEvent(
+         new CustomEvent("songChanged", { bubbles: true, detail: { songId } })
+      );
    }
 
    clickHandler(event) {

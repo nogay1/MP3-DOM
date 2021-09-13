@@ -9,6 +9,10 @@ const songList = new songListElement(
    player.songs
 );
 
+document.addEventListener("songChanged", (event) => {
+   console.log(event);
+});
+
 const playlistList = new playlistListElement(
    document.getElementById("playlists"),
    player.playlists
