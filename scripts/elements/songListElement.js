@@ -19,11 +19,7 @@ export default class songListElement {
       this.parentElement.removeChild(
          this.parentElement.querySelector(`[id="${songId}"]`)
       );
-      const songIndex = this.data.findIndex((song) => song.id === songId);
-      this.data = this.data.splice(
-         this.data.findIndex((song) => song.id === songId),
-         1
-      );
+      this.data = this.data.filter(({ id }) => id !== parseInt(songId));
    }
 
    playSong(songId) {
