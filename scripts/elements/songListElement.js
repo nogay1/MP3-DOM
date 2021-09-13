@@ -1,4 +1,5 @@
 import songElement from "./songElement.js";
+import { getSongById } from "../helpers.js";
 
 export default class songListElement {
    constructor(parentElement, songs) {
@@ -26,8 +27,12 @@ export default class songListElement {
    }
 
    playSong(songId) {
+      const songToPlay = getSongById(parseInt(songId));
       this.parentElement.dispatchEvent(
-         new CustomEvent("songChanged", { bubbles: true, detail: { songId } })
+         new CustomEvent("songChanged", {
+            bubbles: true,
+            detail: { song: songToPlay },
+         })
       );
    }
 
