@@ -5,6 +5,17 @@ import { getSongById } from "./helpers.js";
 const songList = {
    songs: [],
    parentElement: document.getElementById("songs"),
+   init() {
+      for (const song of player.songs) {
+         const songEl = new songElement(song);
+         this.songs.push(songEl);
+         this.parentElement.append(songEl.element);
+      }
+      this.parentElement.addEventListener("click", this.clickHandler);
+   },
+   clickHandler(event) {
+      console.log(event);
+   },
 };
 const playlistList = {
    playlists: [],
@@ -12,16 +23,7 @@ const playlistList = {
 };
 
 function initializeLists() {
-   for (const song of player.songs) {
-      const songEl = new songElement(song);
-      songList.songs.push(songEl);
-      songList.parentElement.append(songEl.element);
-   }
-
-   songList.parentElement.addEventListener("click", (event) => {
-      console.log(event);
-   });
-
+   songList.init();
    for (const playlist of player.playlists) {
       const plEl = new playlistElement(playlist);
       playlistList.playlists.push(plEl);
