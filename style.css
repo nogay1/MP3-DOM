@@ -21,6 +21,12 @@ body {
    width: 40rem;
 }
 
+.songs-options {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+
 .player {
    position: fixed;
    width: 200px;

@@ -17,7 +17,14 @@ export default class songListElement {
          const songEl = new songElement(song);
          children.push(songEl.element);
       }
-      return [createElement("div", "test"), ...children];
+      return [
+         createElement(
+            "div",
+            [createElement("button", "Add Song", [], { value: "addSong" })],
+            "songs-options"
+         ),
+         ...children,
+      ];
    }
 
    removeSong(songId) {
