@@ -47,7 +47,10 @@ export default class songListElement {
 
    addSong() {
       const dialog = new addSongElement((songData) => {
-         console.log(songData);
+         this._data.push(songData);
+         this._parentElement.append(
+            new songElement({ id: 12, ...songData }).element
+         );
       });
    }
 
