@@ -25,6 +25,10 @@ export default class songListElement {
       );
    }
 
+   playSong(songId) {
+      alert(songId);
+   }
+
    clickHandler(event) {
       if (event.target.tagName !== "BUTTON") return;
       const action = event.target.value;
@@ -33,5 +37,6 @@ export default class songListElement {
       if (!songEl) return;
 
       if (action === "remove") this.removeSong(songEl.id);
+      if (action === "play") this.playSong(songEl.id);
    }
 }
