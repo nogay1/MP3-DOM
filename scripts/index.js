@@ -2,7 +2,10 @@ import songElement from "./elements/songElement.js";
 import playlistElement from "./elements/playlistElement.js";
 import { getSongById } from "./helpers.js";
 
-const songList = { songs: [], parentElement: document.getElementById("songs") };
+const songList = {
+   songs: [],
+   parentElement: document.getElementById("songs"),
+};
 const playlistList = {
    playlists: [],
    parentElement: document.getElementById("playlists"),
@@ -14,6 +17,11 @@ function initializeLists() {
       songList.songs.push(songEl);
       songList.parentElement.append(songEl.element);
    }
+
+   songList.parentElement.addEventListener("click", (event) => {
+      console.log(event);
+   });
+
    for (const playlist of player.playlists) {
       const plEl = new playlistElement(playlist);
       playlistList.playlists.push(plEl);

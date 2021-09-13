@@ -25,7 +25,7 @@ export default class songElement {
     <strong>${title}</strong> ${artist}<br>
       album: ${album}
       `;
-      const attrs = { onclick: `event.target.dispachEvent(new Event('test'))` };
+      const attrs = {};
       return createElement("div", children, "song", attrs);
    }
 }
