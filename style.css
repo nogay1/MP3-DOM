@@ -21,6 +21,15 @@ body {
    width: 40rem;
 }
 
+.player {
+   position: absolute;
+   width: 200px;
+}
+
+.player img {
+   width: 100%;
+}
+
 .song,
 .playlist {
    display: flex;
