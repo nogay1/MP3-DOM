@@ -1,30 +1,35 @@
 import songElement from "./songElement.js";
-import { getSongById } from "../helpers.js";
+import { createElement, getSongById } from "../helpers.js";
 
 export default class songListElement {
    constructor(parentElement, songs) {
-      this.data = songs;
-      this.parentElement = parentElement;
-      for (const song of songs) {
-         const songEl = new songElement(song);
-         this.parentElement.append(songEl.element);
-      }
-
-      this.parentElement.addEventListener("click", (event) => {
+      this._data = songs;
+      this._parentElement = parentElement;
+      this._parentElement.append(...this.createSongListElement());
+      this._parentElement.addEventListener("click", (event) => {
          this.clickHandler(event);
       });
    }
 
+   createSongListElement() {
+      const children = [];
+      for (const song of this._data) {
+         const songEl = new songElement(song);
+         children.push(songEl.element);
+      }
+      return [createElement("div", "test"), ...children];
+   }
+
    removeSong(songId) {
-      this.parentElement.removeChild(
-         this.parentElement.querySelector(`[id="${songId}"]`)
+      this._parentElement.removeChild(
+         this._parentElement.querySelector(`[id="${songId}"]`)
       );
-      this.data = this.data.filter(({ id }) => id !== parseInt(songId));
+      this._data = this._data.filter(({ id }) => id !== parseInt(songId));
    }
 
    playSong(songId) {
       const songToPlay = getSongById(parseInt(songId));
-      this.parentElement.dispatchEvent(
+      this._parentElement.dispatchEvent(
          new CustomEvent("songChanged", {
             bubbles: true,
             detail: { song: songToPlay },
