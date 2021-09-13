@@ -1,29 +1,13 @@
-import songElement from "./elements/songElement.js";
 import playlistElement from "./elements/playlistElement.js";
+import songListElement from "./elements/songListElement.js";
 import { getSongById } from "./helpers.js";
 
-const songList = {
-   songs: [],
-   parentElement: document.getElementById("songs"),
-   init() {
-      for (const song of player.songs) {
-         const songEl = new songElement(song);
-         this.songs.push(songEl);
-         this.parentElement.append(songEl.element);
-      }
-      this.parentElement.addEventListener("click", this.clickHandler);
-   },
-   clickHandler(event) {
-      console.log(event);
-   },
-};
 const playlistList = {
    playlists: [],
    parentElement: document.getElementById("playlists"),
 };
 
 function initializeLists() {
-   songList.init();
    for (const playlist of player.playlists) {
       const plEl = new playlistElement(playlist);
       playlistList.playlists.push(plEl);
@@ -53,4 +37,7 @@ function playSong(songId) {
 player.songs.sort((songA, songB) => songA.title.localeCompare(songB.title));
 player.playlists.sort((pl1, pl2) => pl1.name.localeCompare(pl2.name));
 
-initializeLists();
+let songList = new songListElement(
+   document.getElementById("songs"),
+   player.songs
+);

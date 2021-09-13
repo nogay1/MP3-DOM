@@ -6,7 +6,7 @@ import {
 
 export default class songElement {
    constructor(song) {
-      this.song = song;
+      this.data = song;
       this.element = this.createSongElement(song);
    }
 
@@ -34,6 +34,6 @@ export default class songElement {
       album: ${album}
       `;
       const attrs = { id };
-      return createElement("div", children, "song", attrs);
+      return createElement("song", children, "song", attrs);
    }
 }
