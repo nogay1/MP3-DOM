@@ -17,6 +17,14 @@ export default class songElement {
             src: coverArt,
          }),
          createElement("p", [], "desc"),
+         createElement(
+            "div",
+            [
+               createElement("button", "play", [], { value: "play" }),
+               createElement("button", "remove", [], { value: "remove" }),
+            ],
+            "options"
+         ),
          createElement("span", formatDuration(duration), "duration", {
             style: `color: ${durationColorScale(duration)}`,
          }),
@@ -25,7 +33,7 @@ export default class songElement {
     <strong>${title}</strong> ${artist}<br>
       album: ${album}
       `;
-      const attrs = {};
+      const attrs = { id };
       return createElement("div", children, "song", attrs);
    }
 }
