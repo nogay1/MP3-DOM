@@ -17,6 +17,9 @@ export default class songElement {
             src: coverArt,
          }),
          createElement("p", [], "desc"),
+         createElement("span", formatDuration(duration), "duration", {
+            style: `color: ${durationColorScale(duration)}`,
+         }),
          createElement(
             "div",
             [
@@ -25,9 +28,6 @@ export default class songElement {
             ],
             "options"
          ),
-         createElement("span", formatDuration(duration), "duration", {
-            style: `color: ${durationColorScale(duration)}`,
-         }),
       ];
       children[1].innerHTML = `
     <strong>${title}</strong> ${artist}<br>
