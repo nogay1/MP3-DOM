@@ -2,7 +2,7 @@ import {
    createElement,
    formatDuration,
    durationColorScale,
-} from "./helpers.js";
+} from "../helpers.js";
 
 export default class songElement {
    constructor(song) {

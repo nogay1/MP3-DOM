@@ -1,5 +1,5 @@
-import songElement from "./songElement.js";
-import playlistElement from "./playlistElement.js";
+import songElement from "./elements/songElement.js";
+import playlistElement from "./elements/playlistElement.js";
 import { getSongById } from "./helpers.js";
 
 const songList = { songs: [], parentElement: document.getElementById("songs") };

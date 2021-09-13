@@ -1,4 +1,4 @@
-import { createElement, formatDuration, getSongById } from "./helpers.js";
+import { createElement, formatDuration, getSongById } from "../helpers.js";
 
 export default class playlistElement {
    constructor(playlist) {
