@@ -2,7 +2,24 @@ import songElement from "./songElement.js";
 import playlistElement from "./playlistElement.js";
 import { getSongById } from "./helpers.js";
 
-let currentPlaylist, currentSong, currentTimeout;
+const songList = { songs: [], parentElement: document.getElementById("songs") };
+const playlistList = {
+   playlists: [],
+   parentElement: document.getElementById("playlists"),
+};
+
+function initializeLists() {
+   for (const song of player.songs) {
+      const songEl = new songElement(song);
+      songList.songs.push(songEl);
+      songList.parentElement.append(songEl.element);
+   }
+   for (const playlist of player.playlists) {
+      const plEl = new playlistElement(playlist);
+      playlistList.playlists.push(plEl);
+      playlistList.parentElement.append(plEl.element);
+   }
+}
 
 const playNext = () => {
    const currentIndex = currentPlaylist.indexOf(currentSong);
@@ -24,19 +41,6 @@ function playSong(songId) {
 }
 
 player.songs.sort((songA, songB) => songA.title.localeCompare(songB.title));
-
-player.songs.forEach((song) => {
-   const s = new songElement(song);
-   document.querySelector("#songs").append(s.element);
-});
-
 player.playlists.sort((pl1, pl2) => pl1.name.localeCompare(pl2.name));
 
-player.playlists.forEach((playlist) => {
-   const p = new playlistElement(playlist);
-   document.querySelector("#playlists").append(p.element);
-});
-
-currentPlaylist = player.songs.map((song) => song.id);
-
-playSong(player.songs[0].id);
+initializeLists();
