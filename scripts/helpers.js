@@ -40,6 +40,13 @@ export function getSongById(songId) {
    return player.songs.find(({ id }) => id === songId);
 }
 
+export function generateId(elements) {
+   const ids = elements.map(({ id }) => id);
+   let index = 0;
+   while (ids.indexOf(index) >= 0) index++;
+   return index;
+}
+
 export const validator = {
    title: (value) => {
       if (value.trim().length > 0) return true;

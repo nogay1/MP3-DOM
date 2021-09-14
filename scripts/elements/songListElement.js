@@ -1,5 +1,5 @@
 import songElement from "./songElement.js";
-import { getSongById } from "../helpers.js";
+import { generateId, getSongById } from "../helpers.js";
 
 export default class songListElement {
    constructor(parentElement, songs) {
@@ -36,7 +36,10 @@ export default class songListElement {
    }
 
    addSong(song) {
-      console.log(song);
+      song.id = generateId(this._data);
+      this._data.push(song);
+      const songEl = new songElement(song);
+      this._parentElement.prepend(songEl.element);
    }
 
    clickHandler(event) {
