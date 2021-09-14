@@ -1,0 +1,134 @@
+body {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   align-items: center;
+   flex-wrap: wrap-reverse;
+}
+
+.invalid {
+   border: solid 1px red;
+}
+
+#lists {
+   display: flex;
+   justify-content: start;
+   flex-direction: column;
+   align-items: center;
+   line-height: 1.5rem;
+   width: 40rem;
+}
+
+#songs,
+#playlists {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+}
+
+#addSongForm {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   .input-container {
+      display: inline;
+   }
+}
+
+.songs-options {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+
+.player {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 200px;
+   border: solid 1px black;
+   padding: 1rem;
+   box-shadow: 0 0px 9px 5px #aaa;
+
+   .info {
+      display: grid;
+      grid-template-columns: 30% 70%;
+      align-items: center;
+      column-gap: 0.5rem;
+      margin-bottom: 0.5rem;
+   }
+   .player-options {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+   }
+   img {
+      height: auto;
+      width: 100%;
+   }
+   #progress {
+      margin-top: 1rem;
+      height: 2px;
+      width: 100%;
+      background-color: black;
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      #time {
+         transform: translateY(-0.8em);
+         margin-left: auto;
+      }
+      #negativeTime {
+         transform: translateY(-0.8em);
+         margin-right: auto;
+      }
+      #progressPoint {
+         border-radius: 100%;
+         width: 0.5rem;
+         height: 0.5rem;
+         left: 0%;
+         background-color: blue;
+         position: absolute;
+      }
+   }
+}
+
+.song,
+.playlist {
+   margin-bottom: 0.5rem;
+   box-shadow: 0 0px 5px 2px #aaa;
+   border-radius: 10px;
+   transition: 100ms;
+   display: grid;
+   grid-template-columns: 20% auto 20% 15%;
+   align-items: center;
+   &:hover,
+   &:focus {
+      box-shadow: 0 0px 2px 2px rgb(138, 138, 138);
+   }
+}
+
+.song.selected {
+   border: 1px black;
+}
+
+.coverArt {
+   width: 80px;
+   height: auto;
+}
+
+.desc {
+   margin: 0;
+}
+
+.duration {
+   font-weight: 700;
+   justify-self: center;
+}
+
+.options {
+   justify-self: center;
+   flex-direction: column;
+   display: flex;
+}

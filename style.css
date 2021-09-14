@@ -1,147 +1,210 @@
 body {
-   display: flex;
-   flex-direction: row;
-   justify-content: space-around;
-   align-items: center;
-   flex-wrap: wrap-reverse;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap-reverse;
+      flex-wrap: wrap-reverse;
 }
 
 .invalid {
-   border: solid 1px red;
+  border: solid 1px red;
 }
 
 #lists {
-   display: flex;
-   justify-content: start;
-   flex-direction: column;
-   align-items: center;
-   line-height: 1.5rem;
-   width: 40rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 1.5rem;
+  width: 40rem;
 }
 
 #songs,
 #playlists {
-   display: flex;
-   flex-direction: column;
-   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
 }
 
 #addSongForm {
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-.input-container {
-   display: inline;
+#addSongForm .input-container {
+  display: inline;
 }
 
 .songs-options {
-   display: flex;
-   justify-content: space-around;
-   align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .player {
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 200px;
-   border: solid 1px black;
-   padding: 1rem;
-   box-shadow: 0 0px 9px 5px #aaa;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  border: solid 1px black;
+  padding: 1rem;
+  -webkit-box-shadow: 0 0px 9px 5px #aaa;
+          box-shadow: 0 0px 9px 5px #aaa;
 }
 
 .player .info {
-   display: grid;
-   grid-template-columns: 30% 70%;
-   align-items: center;
-   column-gap: 0.5rem;
-   margin-bottom: 0.5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% 70%;
+      grid-template-columns: 30% 70%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 0.5rem;
+          column-gap: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .player .player-options {
-   display: flex;
-   justify-content: space-around;
-   align-items: center;
-}
-
-.player #progress {
-   margin-top: 1rem;
-   height: 2px;
-   width: 100%;
-   background-color: black;
-   align-items: center;
-   display: flex;
-   justify-content: space-between;
-   position: relative;
-}
-
-#progress #time {
-   transform: translateY(-0.8em);
-   margin-left: auto;
-}
-#progress #negativeTime {
-   transform: translateY(-0.8em);
-   margin-right: auto;
-}
-
-#progress #progressPoint {
-   border-radius: 100%;
-   width: 0.5rem;
-   height: 0.5rem;
-   left: 0%;
-   background-color: blue;
-   position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .player img {
-   height: auto;
-   width: 100%;
+  height: auto;
+  width: 100%;
+}
+
+.player #progress {
+  margin-top: 1rem;
+  height: 2px;
+  width: 100%;
+  background-color: black;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+}
+
+.player #progress #time {
+  -webkit-transform: translateY(-0.8em);
+          transform: translateY(-0.8em);
+  margin-left: auto;
+}
+
+.player #progress #negativeTime {
+  -webkit-transform: translateY(-0.8em);
+          transform: translateY(-0.8em);
+  margin-right: auto;
+}
+
+.player #progress #progressPoint {
+  border-radius: 100%;
+  width: 0.5rem;
+  height: 0.5rem;
+  left: 0%;
+  background-color: blue;
+  position: absolute;
 }
 
 .song,
 .playlist {
-   background-color: white;
-   margin-bottom: 0.5rem;
-   box-shadow: 0 0px 5px 2px #aaa;
-   border-radius: 10px;
-   transition: 100ms;
+  margin-bottom: 0.5rem;
+  -webkit-box-shadow: 0 0px 5px 2px #aaa;
+          box-shadow: 0 0px 5px 2px #aaa;
+  border-radius: 10px;
+  -webkit-transition: 100ms;
+  transition: 100ms;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% auto 20% 15%;
+      grid-template-columns: 20% auto 20% 15%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.song {
-   display: grid;
-   grid-template-columns: 20% auto 20% 15%;
-   align-items: center;
-}
-
-.song:hover,
-.song:focus,
+.song:hover, .song:focus,
 .playlist:hover,
 .playlist:focus {
-   box-shadow: 0 0px 2px 2px rgb(138, 138, 138);
+  -webkit-box-shadow: 0 0px 2px 2px #8a8a8a;
+          box-shadow: 0 0px 2px 2px #8a8a8a;
 }
 
 .song.selected {
-   border: 1px black;
+  border: 1px black;
 }
 
 .coverArt {
-   width: 80px;
-   height: auto;
+  width: 80px;
+  height: auto;
 }
 
 .desc {
-   margin: 0;
+  margin: 0;
 }
 
 .duration {
-   font-weight: 700;
-   justify-self: center;
+  font-weight: 700;
+  -ms-grid-column-align: center;
+      justify-self: center;
 }
 
 .options {
-   justify-self: center;
-   flex-direction: column;
-   display: flex;
+  justify-self: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
+/*# sourceMappingURL=style.css.map */
