@@ -26,6 +26,11 @@ export function formatDuration(duration) {
    );
 }
 
+export function durationToSeconds(duration) {
+   const split = duration.split(":");
+   return parseInt(split[0]) * 60 + parseInt(split[1]);
+}
+
 export function durationColorScale(duration) {
    duration =
       duration < MIN_LENGTH
@@ -58,7 +63,7 @@ export const validator = {
       if (value.trim().length > 0) return true;
    },
    duration: (value) => {
-      if (value.trim().length > 0) return true;
+      return value.trim().match(/[0-5][0-9]:[0-5][0-9]/);
    },
    coverArt: (value) => {
       if (value.trim().length > 0) return true;

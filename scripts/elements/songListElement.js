@@ -1,5 +1,5 @@
 import songElement from "./songElement.js";
-import { generateId, getSongById } from "../helpers.js";
+import { durationToSeconds, generateId, getSongById } from "../helpers.js";
 
 export default class songListElement {
    constructor(parentElement, songs) {
@@ -36,6 +36,7 @@ export default class songListElement {
    }
 
    addSong(song) {
+      song.duration = durationToSeconds(song.duration);
       song.id = generateId(this._data);
       this._data.push(song);
       const songEl = new songElement(song);
