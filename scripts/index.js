@@ -34,6 +34,7 @@ addSongForm.addEventListener("submit", (event) => {
       coverArt: null,
       album: null,
       title: null,
+      duration: null,
    };
    for (const param in newSong) {
       if (!validator[param](addSongForm[param].value)) alert("Bad Song");

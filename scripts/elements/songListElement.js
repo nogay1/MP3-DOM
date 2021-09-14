@@ -36,6 +36,7 @@ export default class songListElement {
    }
 
    addSong(song) {
+      console.log(song);
       song.duration = durationToSeconds(song.duration);
       song.id = generateId(this._data);
       this._data.push(song);
