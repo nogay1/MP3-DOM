@@ -37,8 +37,11 @@ addSongForm.addEventListener("submit", (event) => {
       duration: null,
    };
    for (const param in newSong) {
-      if (!validator[param](addSongForm[param].value)) alert("Bad Song");
+      if (!validator[param](addSongForm[param].value)) return alert("Bad Song");
       newSong[param] = addSongForm[param].value.trim();
+   }
+   for (const param in newSong) {
+      addSongForm[param].value = "";
    }
    songList.addSong(newSong);
 });
