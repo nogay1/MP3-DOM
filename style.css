@@ -6,6 +6,10 @@ body {
    flex-wrap: wrap-reverse;
 }
 
+.invalid {
+   border: solid 1px red;
+}
+
 #lists {
    display: flex;
    justify-content: start;

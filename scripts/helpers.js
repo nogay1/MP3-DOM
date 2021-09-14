@@ -39,3 +39,24 @@ export function durationColorScale(duration) {
 export function getSongById(songId) {
    return player.songs.find(({ id }) => id === songId);
 }
+
+export const validator = {
+   title: (value) => {
+      if (value.trim().length > 0) return true;
+   },
+   name: (value) => {
+      if (value.trim().length > 0) return true;
+   },
+   album: (value) => {
+      if (value.trim().length > 0) return true;
+   },
+   duration: (value) => {
+      if (value.trim().length > 0) return true;
+   },
+   coverArt: (value) => {
+      if (value.trim().length > 0) return true;
+   },
+   artist: (value) => {
+      if (value.trim().length > 0) return true;
+   },
+};

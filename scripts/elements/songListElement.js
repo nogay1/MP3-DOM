@@ -35,6 +35,10 @@ export default class songListElement {
       );
    }
 
+   addSong(song) {
+      console.log(song);
+   }
+
    clickHandler(event) {
       if (event.target.tagName !== "BUTTON") return;
       const action = event.target.value;
