@@ -1,31 +1,21 @@
 import songElement from "./songElement.js";
-import { createElement, getSongById } from "../helpers.js";
-import addSongElement from "./addSongElement.js";
+import { getSongById } from "../helpers.js";
 
 export default class songListElement {
    constructor(parentElement, songs) {
       this._data = songs;
       this._parentElement = parentElement;
-      this._parentElement.append(...this.createSongListElement());
+      this.createSongListElement();
       this._parentElement.addEventListener("click", (event) => {
          this.clickHandler(event);
       });
    }
 
    createSongListElement() {
-      const children = [];
       for (const song of this._data) {
          const songEl = new songElement(song);
-         children.push(songEl.element);
+         this._parentElement.append(songEl.element);
       }
-      return [
-         createElement(
-            "div",
-            [createElement("button", "Add Song", [], { value: "addSong" })],
-            "songs-options"
-         ),
-         ...children,
-      ];
    }
 
    removeSong(songId) {
@@ -45,20 +35,9 @@ export default class songListElement {
       );
    }
 
-   addSong() {
-      const dialog = new addSongElement((songData) => {
-         this._data.push(songData);
-         this._parentElement.append(
-            new songElement({ id: 12, ...songData }).element
-         );
-      });
-   }
-
    clickHandler(event) {
       if (event.target.tagName !== "BUTTON") return;
       const action = event.target.value;
-
-      if (action === "addSong") this.addSong();
 
       const songEl = event.target.closest("song");
       if (!songEl) return;

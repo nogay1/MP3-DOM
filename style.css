@@ -12,27 +12,24 @@ body {
    flex-direction: column;
    align-items: center;
    line-height: 1.5rem;
+   width: 40rem;
 }
 
 #songs,
 #playlists {
    display: flex;
    flex-direction: column;
-   width: 40rem;
+   width: 100%;
 }
 
-.add-song-dialog {
-   position: fixed;
-   opacity: 1;
-   height: 20rem;
-   width: 20rem;
-   background-color: white;
-   border: solid 1px red;
-   top: calc(50vh - 10rem);
-   left: calc(50vw - 10rem);
+#addSongForm {
    display: flex;
-   flex-direction: column;
-   align-items: center;
+   flex-direction: row;
+   flex-wrap: wrap;
+}
+
+.input-container {
+   display: inline;
 }
 
 .songs-options {

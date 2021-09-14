@@ -12,6 +12,29 @@
 
 <body>
     <div id="lists">
+        <form id="addSongForm">
+            <span class="input-container">
+                <label for="name"> title </label>
+                <input name="title" id="name" />
+            </span>
+            <span class="input-container">
+                <label for="album"> album </label>
+                <input name="album" id="album" />
+            </span>
+            <span class="input-container">
+                <label for="atist"> artist </label>
+                <input name="artist" id="artist" />
+            </span>
+            <span class="input-container">
+                <label for="duration"> duration </label>
+                <input type="number" name="duration" id="duration" />
+            </span>
+            <span class="input-container">
+                <label for="coverArt"> cover art URL </label>
+                <input name="coverArt" id="coverArt" />
+            </span>
+            <button type="submit"> Add Song </button>
+        </form>
         <h1> Songs</h1>
         <div id="songs">
             <!-- Generated songs go here -->
@@ -21,11 +44,6 @@
             <!-- Generated playlists go here -->
         </div>
     </div>
-    <!-- <div id="current">
-        <img class="background">
-        <div class="info">
-        </div>
-    </div> -->
 </body>
 
 </html>
