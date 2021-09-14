@@ -5,10 +5,15 @@ export default class playerElement {
       this._playerElement = playerElement;
       this._playerElement.addEventListener("click", this.click.bind(this));
       this._passedTime = 0;
+      this._queue = [];
       this.song = currentSong;
       this._countingIntervel = setInterval(() => {
          this.tick(1);
       }, 1000);
+   }
+
+   addToQueue(...songs) {
+      this._queue.push(...songs);
    }
 
    stop() {
@@ -19,6 +24,11 @@ export default class playerElement {
       this._countingIntervel = setInterval(() => {
          this.tick(1);
       }, 1000);
+   }
+
+   playNext() {
+      if (this._queue.length < 1) this.song = this._song;
+      this.song = this._queue.pop();
    }
 
    click(event) {
@@ -54,5 +64,7 @@ export default class playerElement {
       $("#progressPoint").style.left =
          Math.floor((100 * this._passedTime) / this._song.duration) + "%";
       $("#negativeTime").innerText = formatDuration(this._passedTime);
+
+      if (this._passedTime >= this._song.duration) this.playNext();
    }
 }

@@ -10,6 +10,7 @@ const playerEl = new playerElement(
    document.querySelector(".player"),
    player.songs[0]
 );
+playerEl.addToQueue(...player.songs.slice(1));
 
 const songList = new songListElement(
    document.getElementById("songs"),
