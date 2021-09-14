@@ -44,9 +44,12 @@ body {
 
 .player {
    position: fixed;
+   top: 0;
+   left: 0;
    width: 200px;
    border: solid 1px black;
    padding: 1rem;
+   box-shadow: 0 0px 9px 5px #aaa;
 }
 
 .player .info {
