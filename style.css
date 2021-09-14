@@ -57,7 +57,7 @@ body {
    grid-template-columns: 30% 70%;
    align-items: center;
    column-gap: 0.5rem;
-   margin-bottom: 1rem;
+   margin-bottom: 0.5rem;
 }
 
 .player .player-options {
