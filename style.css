@@ -102,6 +102,7 @@ body {
 
 .song,
 .playlist {
+   background-color: white;
    margin-bottom: 0.5rem;
    box-shadow: 0 0px 5px 2px #aaa;
    border-radius: 10px;

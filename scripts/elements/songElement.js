@@ -33,7 +33,7 @@ export default class songElement {
     <strong>${title}</strong> ${artist}<br>
       album: ${album}
       `;
-      const attrs = { id, draggable: "true" };
+      const attrs = { id };
       return createElement("song", children, "song", attrs);
    }
 }
