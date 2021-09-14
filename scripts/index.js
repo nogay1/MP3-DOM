@@ -6,7 +6,7 @@ import { validator } from "./helpers.js";
 player.songs.sort((songA, songB) => songA.title.localeCompare(songB.title));
 player.playlists.sort((pl1, pl2) => pl1.name.localeCompare(pl2.name));
 
-const playerEl = new playerElement(player.songs[0], document.body);
+//const playerEl = new playerElement(player.songs[0], document.body);
 
 const songList = new songListElement(
    document.getElementById("songs"),
@@ -22,7 +22,7 @@ document.addEventListener("songChanged", (event) => {
    const { song } = event.detail;
    if (!song) return;
 
-   playerEl.song = song;
+   //playerEl.song = song;
 });
 
 const addSongForm = document.getElementById("addSongForm");
