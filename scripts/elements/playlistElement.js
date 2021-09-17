@@ -5,6 +5,11 @@ export default class playlistElement {
       this.playlist = playlist;
       this.element = this.createPlaylistElement(playlist);
    }
+
+   redraw() {
+      this.element = this.createPlaylistElement(this.playlist);
+   }
+
    createPlaylistElement({ name, songs }) {
       const duration = songs.reduce(
          (sum, songId) => getSongById(songId).duration + sum,

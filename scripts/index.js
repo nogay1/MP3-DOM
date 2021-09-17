@@ -29,6 +29,10 @@ document.addEventListener("songChanged", (event) => {
    playerEl.song = song;
 });
 
+document.addEventListener("songDeleted", (event) => {
+   playlistList.updateRemovedSong(event.detail.songId);
+});
+
 const addSongForm = document.getElementById("addSongForm");
 addSongForm.addEventListener("submit", (event) => {
    event.preventDefault();
