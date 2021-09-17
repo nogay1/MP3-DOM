@@ -1,6 +1,7 @@
 import songElement from "./songElement.js";
 import { durationToSeconds, generateId, getSongById } from "../helpers.js";
 
+//TODO sorting function
 export default class songListElement {
    constructor(parentElement, songs) {
       this._data = songs;
@@ -9,6 +10,10 @@ export default class songListElement {
       this._parentElement.addEventListener("click", (event) => {
          this.clickHandler(event);
       });
+   }
+
+   get songList() {
+      return this._data;
    }
 
    createSongListElement() {
@@ -23,6 +28,9 @@ export default class songListElement {
          this._parentElement.querySelector(`[id="${songId}"]`)
       );
       this._data = this._data.filter(({ id }) => id !== parseInt(songId));
+      this._parentElement.dispatchEvent(
+         new CustomEvent("songDeleted", { bubbles: true, detail: { songId } })
+      );
    }
 
    playSong(songId) {
