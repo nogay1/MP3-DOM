@@ -30,7 +30,7 @@ Bellow you will find descriptions for the "more interesting" files.
 
 ## [helpers.js](./helpers.js)
 
-Implements helper-functions used in other files.
+### Implements helper-functions used in other files.
 
 -  ### createElement:
    Easily create a HTML Element
@@ -49,7 +49,7 @@ Implements helper-functions used in other files.
 
 ![player image](./images/readme/player.png)
 
-A box displaying the current playing song.
+### A box displaying the current playing song.
 
 -  ### addToQueue:
    Adds songs/song to the queue of the player.
@@ -64,4 +64,19 @@ A box displaying the current playing song.
 -  ### tick:
    Internal function for updation the time bar.
 
-## [Original Assignment](./original_task.md)
+## [songListElement.js](./songListElement.js)
+
+![song list image](./images/readme/songList.png)
+
+### A list displaying an array of songs and handles the song-related events.
+
+-  ### sortList:
+   Sorts the songList data + DOM Elements by title.
+-  ### removeSong:
+   Removes a song from the DOM and the data. Also dispaches a `songDeleted` event (the `playlistListElement` caches it).
+-  ### addSong:
+   Adds a song to the DOM and the data, also sorts the songs again.
+-  ### playSong:
+   Handles the clicks on the `Play` buttons, dispaches a custom `songChanged` event.
+
+# [Original Assignment](./original_task.md)
