@@ -79,4 +79,14 @@ Bellow you will find descriptions for the "more interesting" files.
 -  ### playSong:
    Handles the clicks on the `Play` buttons, dispaches a custom `songChanged` event.
 
+# Future
+
+-  Make all the "Elements" inherit the `HTMLElement` js class, for smoother code. Then the state and dom element will be one!
+-  Add more playlist related features:
+   -  When clicking on a playlist change the displayed list to it.
+   -  Allow full editing of playlists (add/remove song, create/delete playlist)
+
+**Thank you for reading this far**
+Please open Issues with bugs or just ideas :)
+
 # [Original Assignment](./original_task.md)
