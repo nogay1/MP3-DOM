@@ -1,7 +1,6 @@
 import songElement from "./songElement.js";
 import { durationToSeconds, generateId, getSongById } from "../helpers.js";
 
-//TODO sorting function
 export default class songListElement {
    constructor(parentElement, songs) {
       this._data = songs;
@@ -14,6 +13,12 @@ export default class songListElement {
 
    get songList() {
       return this._data;
+   }
+
+   sortList() {
+      this._data.sort((songA, songB) => songA.title.localeCompare(songB.title));
+      this._parentElement.innerHTML = "";
+      this.createSongListElement();
    }
 
    createSongListElement() {
@@ -44,12 +49,10 @@ export default class songListElement {
    }
 
    addSong(song) {
-      console.log(song);
       song.duration = durationToSeconds(song.duration);
       song.id = generateId(this._data);
       this._data.push(song);
-      const songEl = new songElement(song);
-      this._parentElement.prepend(songEl.element);
+      this.sortList();
    }
 
    clickHandler(event) {
