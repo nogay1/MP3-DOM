@@ -4,6 +4,8 @@ A web app GUI based on the [last week project (Mp3PlayerTask)](https://github.co
 
 ### [View Online](https://noamgolani.github.io/MP3-DOM/index.html) Version using Github-Pages.
 
+![app](./images/readme/app.png)
+
 ### To run locally
 
       git clone https://github.com/noamgolani/MP3-DOM.git
@@ -59,5 +61,7 @@ A box displaying the current playing song.
    Handles all the `click` events inside the player element
 -  ### set song:
    Sets the currents song - updates the display.
+-  ### tick:
+   Internal function for updation the time bar.
 
 ## [Original Assignment](./original_task.md)
