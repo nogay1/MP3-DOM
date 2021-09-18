@@ -43,4 +43,21 @@ Implements helper-functions used in other files.
 -  ### validator:
    An objects that maps a validation function for every input name. `validator['duration']("12")` will return `false` because it is not in `mm:ss` format.
 
+## [playerElement.js](./playerElement.js)
+
+![player image](./images/readme/player.png)
+
+A box displaying the current playing song.
+
+-  ### addToQueue:
+   Adds songs/song to the queue of the player.
+-  ### stop
+-  ### play
+-  ### playNext:
+   Plays the next song in the queue
+-  ### click:
+   Handles all the `click` events inside the player element
+-  ### set song:
+   Sets the currents song - updates the display.
+
 ## [Original Assignment](./original_task.md)
