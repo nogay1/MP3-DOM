@@ -1,6 +1,6 @@
 # MP3 DOM - [Third Weekend Assignment](./original_task.md)
 
-A web app GUI based on the [last week project (Mp3PlayerTask)](https://github.com/noamgolani/Mp3PlayerTask). Using only Vanilla-JS, Events and DOM manipulations.
+A web app GUI based on [last week's project (Mp3PlayerTask)](https://github.com/noamgolani/Mp3PlayerTask). Using only Vanilla-JS, Events, and DOM manipulations.
 
 ### [View Online](https://noamgolani.github.io/MP3-DOM/index.html) Version using Github-Pages.
 
@@ -26,7 +26,7 @@ The MP3-DOM project is build using js classes.
    -  `playlistElement.js` - single playlist element displaying playlist properties.
    -  `playlistListElement.js` - a list displaying an array of playlists.
 
-Bellow you will find descriptions for the "more interesting" files.
+Bellow, you can find descriptions for the "more interesting" files.
 
 ## [helpers.js](./helpers.js)
 
